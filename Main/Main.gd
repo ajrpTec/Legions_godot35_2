@@ -1,0 +1,45 @@
+extends Node2D
+
+class_name Main
+
+var army_list_king1 = [];
+var army_list_king2 = [];
+
+func _ready():
+	army_list_king1 = $King1.get_children()
+	army_list_king2 = $King2.get_children()
+	pass
+
+
+func _process(delta):
+	var attacker1 : ArmyB 	= army_list_king2[0];
+	var wayPoint : Vector2	= army_list_king1[0].formation.global_position;
+	attacker1.setDestination(wayPoint)
+
+
+
+func _input(event):
+	if Input.is_action_just_pressed("mouseLeft"):
+		
+		var armySelected = -1
+		
+		for i in range(0,army_list_king1.size()):
+			
+			if army_list_king1[i]._select_army_using_mouse_position():
+				armySelected = i
+				break
+		
+		if armySelected != -1:
+			for i in range(0,army_list_king1.size()):
+				if i != armySelected:
+					army_list_king1[i]._deselect();
+		
+		if armySelected == -1:
+			for a in army_list_king1:
+				if a.userControled :
+					a.setDestination(get_global_mouse_position());
+					return
+		
+	pass
+
+

@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Main/Main.gd" type="Script" id=2]
+[ext_resource path="res://ArmyB/ArmyB.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main/king_icon.png" type="Texture" id=4]
+
+[node name="Main" type="Node2D"]
+position = Vector2( -208, -48 )
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 8, -112 )
+current = true
+zoom = Vector2( 4, 4 )
+
+[node name="King1" type="Sprite" parent="."]
+modulate = Color( 0.984314, 0.882353, 0.0627451, 1 )
+position = Vector2( 56, -1080 )
+texture = ExtResource( 4 )
+
+[node name="ArmyB1" parent="King1" instance=ExtResource( 3 )]
+position = Vector2( 257, 283 )
+rotation = 3.14159
+king_code = 1
+
+[node name="ArmyB2" parent="King1" instance=ExtResource( 3 )]
+position = Vector2( -13, 283 )
+rotation = 3.14159
+king_code = 1
+
+[node name="ArmyB3" parent="King1" instance=ExtResource( 3 )]
+position = Vector2( -256, 288 )
+rotation = 3.14159
+king_code = 1
+
+[node name="King2" type="Sprite" parent="."]
+position = Vector2( 24, 424 )
+texture = ExtResource( 4 )
+
+[node name="ArmyB1" parent="King2" instance=ExtResource( 3 )]
+position = Vector2( 256, -120 )
+king_code = 2
+
+[node name="ArmyB2" parent="King2" instance=ExtResource( 3 )]
+position = Vector2( 8, -112 )
+king_code = 2
+
+[node name="ArmyB3" parent="King2" instance=ExtResource( 3 )]
+position = Vector2( -248, -112 )
+king_code = 2
