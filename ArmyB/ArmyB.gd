@@ -54,10 +54,11 @@ func _draw():
 	if not debugDrawing : return;
 	draw_circle(to_local(formation.global_position),80,Color(0,1,0,0.1))
 	draw_circle(to_local(destination),5,Color.red)
-	draw_line(to_local(formation.global_position), to_local(formation.global_position + formation.direction*100),Color.red)
-	for p in formation.pos_list:
-		draw_circle(to_local(formation.global_position + p),4,Color.black);
-
+	#draw_line(to_local(formation.global_position), to_local(formation.global_position + formation.direction*100),Color.red)
+	#for p in formation.pos_list:
+	#	draw_circle(to_local(formation.global_position + p),4,Color.black);
+	pass
+	
 func _select_army_using_mouse_position():
 	var distToFormationCenter : Vector2 = get_global_mouse_position() - formation.global_position;
 	if distToFormationCenter.length() < 120:

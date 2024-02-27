@@ -11,11 +11,24 @@ func _init():
 func _create_new_formation( new_heading:float , new_global_position:Vector2 ):
 	direction 		= direction.rotated(new_heading);
 	global_position	= new_global_position;
+	_init_square_formation()
+	pass
+
+# Formationstype : Træk 25 soldater sammen!
+func _init_consentrate_formation():
+	pos_list = []
+	for i in range(0,25):
+		pos_list.append(Vector2(0,0))
+
+# Formationstype : 25 soldater i firkantformation!
+func _init_square_formation():
+	pos_list = []
 	for i in range(-2,3):
+		print(i);
 		for j in range(-2,3):
 			var p : Vector2 = Vector2(i*40,j*40);
 			pos_list.append(p);
-	pass
+
 
 func _moveAndTurnTo(pos):
 	_moveTo(pos)
